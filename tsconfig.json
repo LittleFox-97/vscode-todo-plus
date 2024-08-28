@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
     "experimentalDecorators": true,
-    "module": "commonjs",
-    "target": "es2017",
+    "baseUrl": ".",
+    "rootDir": "src",
+    "module": "Node16",
+    "resolveJsonModule": true,
+    "strict": true,
     "outDir": "out",
-    "lib": ["es2015", "es2016", "es2017"],
-    "sourceMap": true,
-    "rootDir": ".",
+    "sourceMap": true
   },
   "exclude": [
     "node_modules",

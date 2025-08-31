@@ -1,29 +1,26 @@
+'use strict'
 
-/* IMPORT */
+const path = require('node:path')
 
-const path = require ( 'path' );
+/** @typedef {import('webpack').Configuration} WebpackConfig */
 
-/* CONFIG */
-
-const config = {
+/** @type WebpackConfig */
+const extensionConfig = {
   target: 'node',
+  mode: 'none',
+
   entry: './src/extension.ts',
   output: {
-    path: path.resolve ( __dirname, 'out' ),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'extension.js',
     libraryTarget: 'commonjs2',
-    devtoolModuleFilenameTemplate: 'file:///[absolute-resource-path]'
   },
-  devtool: 'source-map',
   externals: {
     vscode: 'commonjs vscode',
-    fsevents: 'commonjs fsevents'
-  },
-  node: {
-    __dirname: false
+
   },
   resolve: {
-    extensions: ['tsx', '.ts', '.jsx', '.js']
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [{
@@ -32,15 +29,13 @@ const config = {
       use: [
         {
           loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
-        }
-      ]
-    }]
-  }
+        },
+      ],
+    }],
+  },
+  devtool: 'nosources-source-map',
+  infrastructureLogging: {
+    level: 'log',
+  },
 }
-
-/* EXPORT */
-
-module.exports = config;
+module.exports = [extensionConfig]

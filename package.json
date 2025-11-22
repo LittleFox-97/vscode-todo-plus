@@ -1054,8 +1054,7 @@
     "sha1": "^1.1.1",
     "string-matches": "^1.1.3",
     "sugar-date": "^2.0.6",
-    "to-time": "^1.0.2",
-    "vscode-beggar": "^1.0.0"
+    "to-time": "^1.0.2"  
   },
   "devDependencies": {
     "ts-loader": "^5.2.1",

@@ -1,9 +1,9 @@
-
-☐ Moving projects up and down is buggy
-☐ Due tag: @due(+timestamp)
-  ☐ Add something in the gutter or the overview ruler to higlight them
-☐ Formatting:
-  ☐ Autocomplete these characters: *_~`
-  ☐ Style/Code commands (cmd+b/i/s/`)
-    ☐ https://github.com/neilsustc/vscode-markdown/blob/master/src/formatting.ts
-  ☐ Maybe remove formatting in favor of `vscode-highlight`
+Планы:
+  ☐ Перемещение проектов вверх и вниз работает с ошибками
+  ☐ Тег дедлайна: @due(+timestamp)
+    ☐ Добавить визуальное выделение в области с отступами или на линейке прокрутки
+  ☐ Форматирование:
+    ☐ Автодополнение символов: *_~`
+    ☐ Поддержка команд для стилизации/кода (cmd+b/i/s/`)
+      ☐ https://github.com/neilsustc/vscode-markdown/blob/master/src/formatting.ts
+    ☐ Возможно, отказаться от форматирования в пользу расширения `vscode-highlight`

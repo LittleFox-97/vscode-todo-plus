@@ -16,3 +16,4 @@ package-lock.json
 out
 plan.todo
 .vscode/
+eslint.config.mjs

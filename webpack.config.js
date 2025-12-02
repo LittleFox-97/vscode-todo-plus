@@ -1,46 +1,44 @@
+//@ts-check
 
-/* IMPORT */
+'use strict';
 
-const path = require ( 'path' );
+const path = require('path');
 
-/* CONFIG */
+//@ts-check
+/** @typedef {import('webpack').Configuration} WebpackConfig **/
 
-const config = {
+/** @type WebpackConfig */
+const extensionConfig = {
   target: 'node',
+	mode: 'none',
   entry: './src/extension.ts',
   output: {
-    path: path.resolve ( __dirname, 'out' ),
+    path: path.resolve(__dirname, 'out'),
     filename: 'extension.js',
-    libraryTarget: 'commonjs2',
-    devtoolModuleFilenameTemplate: 'file:///[absolute-resource-path]'
+    libraryTarget: 'commonjs2'
   },
-  devtool: 'source-map',
   externals: {
-    vscode: 'commonjs vscode',
-    fsevents: 'commonjs fsevents'
-  },
-  node: {
-    __dirname: false
+    vscode: 'commonjs vscode'
   },
   resolve: {
-    extensions: ['tsx', '.ts', '.jsx', '.js']
+    extensions: ['.ts', '.js']
   },
   module: {
-    rules: [{
-      test: /\.ts$/,
-      exclude: /node_modules/,
-      use: [
-        {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
+    rules: [
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader'
           }
-        }
-      ]
-    }]
-  }
-}
-
-/* EXPORT */
-
-module.exports = config;
+        ]
+      }
+    ]
+  },
+  devtool: 'nosources-source-map',
+  infrastructureLogging: {
+    level: "log",
+  },
+};
+module.exports = [ extensionConfig ];
